@@ -1,0 +1,269 @@
+---
+title: "ST301_A1_S17_314"
+author: "S/17/314"
+date: "2022-11-06"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+An insurance company wants to develop a model to predict the annual medical claims made
+by its customers. The data analytic team of the company assumes that the following variables may be useful in predicting the annual medical claims made by a given policyholder. 
+
+1. age : age of the policyholder
+2. gender : the policyholder’s gender - female, male
+3. bmi : body mass index of the policyholder
+4. num dependents : number of dependents covered by the health insurance (spouse and children below age 18)
+5. is smoker : smoking status of the policyholder - yes, no
+6. working env : working environment of the policyholder - construction site, factory, office
+7. tot claims : total amount of claims made by the policyholder
+
+
+Read data from insurance claims.csv
+ 
+### read the data set
+```{r}
+insurance_claims <- read.csv("data/insurance_claims.csv")
+head(insurance_claims)
+```
+
+
+```{r}
+attach(insurance_claims)
+
+```
+
+### view the data set
+
+```{r}
+View(insurance_claims)
+```
+
+
+# Exploratory Data Analysis
+
+This data set contains 3 categorical variables. Before fitting the model, we should  convert categorical variables to numerical variables.
+
+```{r}
+insurance_claims$sex <- as.numeric(factor(insurance_claims$sex,labels= c("male","female")))
+insurance_claims$working_env <- as.numeric(factor(insurance_claims$working_env,labels = c("construction site","factory","office")))
+insurance_claims$is_smoker <- as.numeric(factor(insurance_claims$is_smoker, labels = c("yes","no")))
+head(insurance_claims)
+```
+
+### the number of column
+```{r}
+dim(insurance_claims)
+```
+### to display containt of the list
+```{r}
+str((insurance_claims))
+```
+```{r}
+pairs(~age+sex+bmi+children+is_smoker+working_env+tot_claims, data = insurance_claims)
+
+```
+
+# Model Fitting
+
+we use forward selection method and adjusted R-squard as variable selection method.
+
+
+## Iteration 01
+
+```{r}
+summary(lm(tot_claims~age,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(formula = tot_claims~sex,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(formula = tot_claims~bmi,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(formula = tot_claims~children,data = insurance_claims))$adj.r.squared
+```
+
+```{r}
+summary(lm(formula = tot_claims~is_smoker,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(formula = tot_claims~working_env,data = insurance_claims))$adj.r.squared
+```
+ Working_env is added to the model.
+
+
+
+## Iteration 02
+
+```{r}
+summary(lm(formula = tot_claims~working_env+age,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(formula = tot_claims~working_env+sex,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+bmi,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+children,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+is_smoker,data = insurance_claims))$adj.r.squared
+```
+Age is added to the model.
+
+
+
+## Iteration 03
+
+```{r}
+summary(lm(tot_claims~working_env+age+sex,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+age+bmi,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+age+children,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker,data = insurance_claims))$adj.r.squared
+```
+is_smoker is added to the model.
+
+## Iteration 04
+
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+sex,data = insurance_claims))$adj.r.squared
+```
+
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+bmi,data = insurance_claims))$adj.r.squared
+```
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+children,data = insurance_claims))$adj.r.squared
+```
+bmi is added to the model.
+
+
+
+## Iteration 05
+
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+bmi+sex,data = insurance_claims))$adj.r.squared
+```
+
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+bmi+children,data = insurance_claims))$adj.r.squared
+```
+## children is added to the model.
+
+
+
+#Iteration 06
+
+```{r}
+summary(lm(tot_claims~working_env+age+is_smoker+bmi+children +sex,data = insurance_claims))$adj.r.squared
+```
+sex is added to the model.
+
+
+# Graph of Adjusted R-squared values
+
+```{r}
+plot(c(0.8614734,0.886051,0.9013036,0.9063182,0.9085069,0.9085106),xlab = "Number of variables in the model",ylab ="Adjusted R-squared", type="o")
+```
+
+# Backward selection based on F-Test
+
+```{r}
+full.model <- lm(tot_claims ~ ., data = insurance_claims)
+drop1(full.model, test = "F")
+
+```
+
+Variable sex has the highest p value(>0.05). It is not significant then we can Drop sex variable from the model.
+
+```{r}
+drop1(full.model, .~. -sex,test = "F")
+```
+all the variables have p values less than 0.05. All variables are significant.
+
+
+# Reduced Model
+
+```{r}
+red_model <- lm(tot_claims ~ working_env+ age + bmi + children + is_smoker, data = insurance_claims)
+summary(red_model)
+
+```
+All the variables have p values less than 0.05 and since adj R-squared value is 0.9085 this model is significant.
+
+
+# Validation
+
+In Here we use partial F test for Hypothesis testing
+
+Null Hypothesis : Reduced model is adequate vs
+Alternative Hypothesis : Reduced model is not adequate
+
+```{r}
+anova(red_model,full.model)
+```
+
+According to the anova table, p value of fitted line is greater than 0.05. so we do not have enough evidence to reject null hypothesis.
+We can say that the reduced model is adequate.
+
+
+# Residuals
+
+```{r}
+par(mfrow = c(2,2))
+plot(red_model)
+```
+
+This reduced model has some outliers. First, we have to remove the outliers.
+
+```{r}
+Q1 <- quantile(insurance_claims$tot_claims, .25)
+Q3 <- quantile(insurance_claims$tot_claims, .75)
+IQR <- IQR(insurance_claims$tot_claims)
+insurance01 <- subset(insurance_claims,insurance_claims$tot_claims > (Q1 -1.5*IQR) & insurance_claims$tot_claims < (Q3+1.5*IQR))
+dim(insurance01)
+
+```
+```{r}
+attach(insurance01)
+```
+
+
+
+```{r}
+reduced_model01 <-lm(tot_claims~working_env+age+is_smoker+bmi+children,data = insurance01)
+```
+```{r}
+hist(insurance01$tot_claims)
+
+```
+```{r}
+red_model <- lm(tot_claims ~ working_env+ age + bmi + children + is_smoker, data = insurance01)
+par(mfrow = c(2, 2))
+plot(red_model)
+```
+
+
+# conclustion
+
+After removing the outliers, assumptions are not violated.
+
+```{r}
+coef(red_model)
+```
+Fitted Model is ,
+tot_claims=23367.01967-(9731.74438)working_env + (165.14881)age + (16.46953)bmi + (463.30489)children + (5029.076)is_smoker

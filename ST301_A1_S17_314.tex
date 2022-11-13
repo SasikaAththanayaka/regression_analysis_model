@@ -1,0 +1,713 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={ST301\_A1\_S17\_314},
+  pdfauthor={S/17/314},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{ST301\_A1\_S17\_314}
+\author{S/17/314}
+\date{2022-11-06}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+An insurance company wants to develop a model to predict the annual
+medical claims made by its customers. The data analytic team of the
+company assumes that the following variables may be useful in predicting
+the annual medical claims made by a given policyholder.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  age : age of the policyholder
+\item
+  gender : the policyholder's gender - female, male
+\item
+  bmi : body mass index of the policyholder
+\item
+  num dependents : number of dependents covered by the health insurance
+  (spouse and children below age 18)
+\item
+  is smoker : smoking status of the policyholder - yes, no
+\item
+  working env : working environment of the policyholder - construction
+  site, factory, office
+\item
+  tot claims : total amount of claims made by the policyholder
+\end{enumerate}
+
+Read data from insurance claims.csv
+
+\hypertarget{read-the-data-set}{%
+\subsubsection{read the data set}\label{read-the-data-set}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{insurance\_claims }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/insurance\_claims.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   age    sex    bmi children is_smoker working_env tot_claims
+## 1  19 female 27.900        0       yes     factory  16884.924
+## 2  18   male 33.770        1        no      office   1725.552
+## 3  28   male 33.000        3        no      office   4449.462
+## 4  33   male 22.705        0        no     factory  21984.471
+## 5  32   male 28.880        0        no      office   3866.855
+## 6  31 female 25.740        0        no      office   3756.622
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{view-the-data-set}{%
+\subsubsection{view the data set}\label{view-the-data-set}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploratory-data-analysis}{%
+\section{Exploratory Data Analysis}\label{exploratory-data-analysis}}
+
+This data set contains 3 categorical variables. Before fitting the
+model, we should convert categorical variables to numerical variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{insurance\_claims}\SpecialCharTok{$}\NormalTok{sex }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{factor}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{sex,}\AttributeTok{labels=} \FunctionTok{c}\NormalTok{(}\StringTok{"male"}\NormalTok{,}\StringTok{"female"}\NormalTok{)))}
+\NormalTok{insurance\_claims}\SpecialCharTok{$}\NormalTok{working\_env }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{factor}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{working\_env,}\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"construction site"}\NormalTok{,}\StringTok{"factory"}\NormalTok{,}\StringTok{"office"}\NormalTok{)))}
+\NormalTok{insurance\_claims}\SpecialCharTok{$}\NormalTok{is\_smoker }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{factor}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{is\_smoker, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"yes"}\NormalTok{,}\StringTok{"no"}\NormalTok{)))}
+\FunctionTok{head}\NormalTok{(insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   age sex    bmi children is_smoker working_env tot_claims
+## 1  19   1 27.900        0         2           2  16884.924
+## 2  18   2 33.770        1         1           3   1725.552
+## 3  28   2 33.000        3         1           3   4449.462
+## 4  33   2 22.705        0         1           2  21984.471
+## 5  32   2 28.880        0         1           3   3866.855
+## 6  31   1 25.740        0         1           3   3756.622
+\end{verbatim}
+
+\hypertarget{the-number-of-column}{%
+\subsubsection{the number of column}\label{the-number-of-column}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1338    7
+\end{verbatim}
+
+\hypertarget{to-display-containt-of-the-list}{%
+\subsubsection{to display containt of the
+list}\label{to-display-containt-of-the-list}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{((insurance\_claims))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    1338 obs. of  7 variables:
+##  $ age        : int  19 18 28 33 32 31 46 37 37 60 ...
+##  $ sex        : num  1 2 2 2 2 1 1 1 2 1 ...
+##  $ bmi        : num  27.9 33.8 33 22.7 28.9 ...
+##  $ children   : int  0 1 3 0 0 0 1 3 2 0 ...
+##  $ is_smoker  : num  2 1 1 1 1 1 1 1 1 1 ...
+##  $ working_env: num  2 3 3 2 3 3 3 3 3 2 ...
+##  $ tot_claims : num  16885 1726 4449 21984 3867 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairs}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{age}\SpecialCharTok{+}\NormalTok{sex}\SpecialCharTok{+}\NormalTok{bmi}\SpecialCharTok{+}\NormalTok{children}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{tot\_claims, }\AttributeTok{data =}\NormalTok{ insurance\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST301_A1_S17_314_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\hypertarget{model-fitting}{%
+\section{Model Fitting}\label{model-fitting}}
+
+we use forward selection method and adjusted R-squard as variable
+selection method.
+
+\hypertarget{iteration-01}{%
+\subsection{Iteration 01}\label{iteration-01}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{age,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.08872432
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.002536334
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{bmi,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.03862008
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.003878717
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{is\_smoker,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6194802
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8614734
+\end{verbatim}
+
+Working\_env is added to the model.
+
+\hypertarget{iteration-02}{%
+\subsection{Iteration 02}\label{iteration-02}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.886051
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8614025
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{bmi,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.865276
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8643907
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{is\_smoker,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8679371
+\end{verbatim}
+
+Age is added to the model.
+
+\hypertarget{iteration-03}{%
+\subsection{Iteration 03}\label{iteration-03}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8859661
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{bmi,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.888348
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8883291
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9013036
+\end{verbatim}
+
+is\_smoker is added to the model.
+
+\hypertarget{iteration-04}{%
+\subsection{Iteration 04}\label{iteration-04}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9012491
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{bmi,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9063182
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.903542
+\end{verbatim}
+
+bmi is added to the model.
+
+\hypertarget{iteration-05}{%
+\subsection{Iteration 05}\label{iteration-05}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{bmi}\SpecialCharTok{+}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9063071
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{bmi}\SpecialCharTok{+}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9085069
+\end{verbatim}
+
+\hypertarget{children-is-added-to-the-model.}{%
+\subsection{children is added to the
+model.}\label{children-is-added-to-the-model.}}
+
+\#Iteration 06
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{bmi}\SpecialCharTok{+}\NormalTok{children }\SpecialCharTok{+}\NormalTok{sex,}\AttributeTok{data =}\NormalTok{ insurance\_claims))}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9085106
+\end{verbatim}
+
+sex is added to the model.
+
+\hypertarget{graph-of-adjusted-r-squared-values}{%
+\section{Graph of Adjusted R-squared
+values}\label{graph-of-adjusted-r-squared-values}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.8614734}\NormalTok{,}\FloatTok{0.886051}\NormalTok{,}\FloatTok{0.9013036}\NormalTok{,}\FloatTok{0.9063182}\NormalTok{,}\FloatTok{0.9085069}\NormalTok{,}\FloatTok{0.9085106}\NormalTok{),}\AttributeTok{xlab =} \StringTok{"Number of variables in the model"}\NormalTok{,}\AttributeTok{ylab =}\StringTok{"Adjusted R{-}squared"}\NormalTok{, }\AttributeTok{type=}\StringTok{"o"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST301_A1_S17_314_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\hypertarget{backward-selection-based-on-f-test}{%
+\section{Backward selection based on
+F-Test}\label{backward-selection-based-on-f-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{full.model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(tot\_claims }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ insurance\_claims)}
+\FunctionTok{drop1}\NormalTok{(full.model, }\AttributeTok{test =} \StringTok{"F"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Single term deletions
+## 
+## Model:
+## tot_claims ~ age + sex + bmi + children + is_smoker + working_env
+##             Df  Sum of Sq        RSS   AIC   F value    Pr(>F)    
+## <none>                    1.7858e+10 21966                        
+## age          1 6.1495e+09 2.4008e+10 22360  458.3293 < 2.2e-16 ***
+## sex          1 1.4141e+07 1.7872e+10 21965    1.0539    0.3048    
+## bmi          1 9.9272e+08 1.8851e+10 22037   73.9888 < 2.2e-16 ***
+## children     1 4.4385e+08 1.8302e+10 21997   33.0808 1.095e-08 ***
+## is_smoker    1 3.5266e+09 2.1385e+10 22205  262.8435 < 2.2e-16 ***
+## working_env  1 3.1215e+10 4.9073e+10 23317 2326.4839 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Variable sex has the highest p value(\textgreater0.05). It is not
+significant then we can Drop sex variable from the model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{drop1}\NormalTok{(full.model, .}\SpecialCharTok{\textasciitilde{}}\NormalTok{. }\SpecialCharTok{{-}}\NormalTok{sex,}\AttributeTok{test =} \StringTok{"F"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Single term deletions
+## 
+## Model:
+## tot_claims ~ age + sex + bmi + children + is_smoker + working_env
+##             Df  Sum of Sq        RSS   AIC  F value    Pr(>F)    
+## <none>                    1.7858e+10 21966                       
+## age          1 6.1495e+09 2.4008e+10 22360  458.329 < 2.2e-16 ***
+## bmi          1 9.9272e+08 1.8851e+10 22037   73.989 < 2.2e-16 ***
+## children     1 4.4385e+08 1.8302e+10 21997   33.081 1.095e-08 ***
+## is_smoker    1 3.5266e+09 2.1385e+10 22205  262.844 < 2.2e-16 ***
+## working_env  1 3.1215e+10 4.9073e+10 23317 2326.484 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+all the variables have p values less than 0.05. All variables are
+significant.
+
+\hypertarget{reduced-model}{%
+\section{Reduced Model}\label{reduced-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{red\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(tot\_claims }\SpecialCharTok{\textasciitilde{}}\NormalTok{ working\_env}\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ bmi }\SpecialCharTok{+}\NormalTok{ children }\SpecialCharTok{+}\NormalTok{ is\_smoker, }\AttributeTok{data =}\NormalTok{ insurance\_claims)}
+\FunctionTok{summary}\NormalTok{(red\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = tot_claims ~ working_env + age + bmi + children + 
+##     is_smoker, data = insurance_claims)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -11334.8  -1162.1    182.1   1684.2  24667.6 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  24608.441   1409.546  17.458  < 2e-16 ***
+## working_env -12170.053    252.355 -48.226  < 2e-16 ***
+## age            160.017      7.463  21.442  < 2e-16 ***
+## bmi            144.977     16.929   8.564  < 2e-16 ***
+## children       477.031     83.182   5.735 1.21e-08 ***
+## is_smoker     6942.301    428.930  16.185  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3663 on 1332 degrees of freedom
+## Multiple R-squared:  0.9088, Adjusted R-squared:  0.9085 
+## F-statistic:  2656 on 5 and 1332 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+All the variables have p values less than 0.05 and since adj R-squared
+value is 0.9085 this model is significant.
+
+\hypertarget{validation}{%
+\section{Validation}\label{validation}}
+
+In Here we use partial F test for Hypothesis testing
+
+Null Hypothesis : Reduced model is adequate vs Alternative Hypothesis :
+Reduced model is not adequate
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(red\_model,full.model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: tot_claims ~ working_env + age + bmi + children + is_smoker
+## Model 2: tot_claims ~ age + sex + bmi + children + is_smoker + working_env
+##   Res.Df        RSS Df Sum of Sq      F Pr(>F)
+## 1   1332 1.7872e+10                           
+## 2   1331 1.7858e+10  1  14140693 1.0539 0.3048
+\end{verbatim}
+
+According to the anova table, p value of fitted line is greater than
+0.05. so we do not have enough evidence to reject null hypothesis. We
+can say that the reduced model is adequate.
+
+\hypertarget{residuals}{%
+\section{Residuals}\label{residuals}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(red\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST301_A1_S17_314_files/figure-latex/unnamed-chunk-34-1.pdf}
+
+This reduced model has some outliers. First, we have to remove the
+outliers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Q1 }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{tot\_claims, .}\DecValTok{25}\NormalTok{)}
+\NormalTok{Q3 }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{tot\_claims, .}\DecValTok{75}\NormalTok{)}
+\NormalTok{IQR }\OtherTok{\textless{}{-}} \FunctionTok{IQR}\NormalTok{(insurance\_claims}\SpecialCharTok{$}\NormalTok{tot\_claims)}
+\NormalTok{insurance01 }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(insurance\_claims,insurance\_claims}\SpecialCharTok{$}\NormalTok{tot\_claims }\SpecialCharTok{\textgreater{}}\NormalTok{ (Q1 }\SpecialCharTok{{-}}\FloatTok{1.5}\SpecialCharTok{*}\NormalTok{IQR) }\SpecialCharTok{\&}\NormalTok{ insurance\_claims}\SpecialCharTok{$}\NormalTok{tot\_claims }\SpecialCharTok{\textless{}}\NormalTok{ (Q3}\FloatTok{+1.5}\SpecialCharTok{*}\NormalTok{IQR))}
+\FunctionTok{dim}\NormalTok{(insurance01)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1199    7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(insurance01)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following objects are masked from insurance_claims:
+## 
+##     age, bmi, children, is_smoker, sex, tot_claims, working_env
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reduced\_model01 }\OtherTok{\textless{}{-}}\FunctionTok{lm}\NormalTok{(tot\_claims}\SpecialCharTok{\textasciitilde{}}\NormalTok{working\_env}\SpecialCharTok{+}\NormalTok{age}\SpecialCharTok{+}\NormalTok{is\_smoker}\SpecialCharTok{+}\NormalTok{bmi}\SpecialCharTok{+}\NormalTok{children,}\AttributeTok{data =}\NormalTok{ insurance01)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(insurance01}\SpecialCharTok{$}\NormalTok{tot\_claims)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST301_A1_S17_314_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{red\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(tot\_claims }\SpecialCharTok{\textasciitilde{}}\NormalTok{ working\_env}\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ bmi }\SpecialCharTok{+}\NormalTok{ children }\SpecialCharTok{+}\NormalTok{ is\_smoker, }\AttributeTok{data =}\NormalTok{ insurance01)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(red\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST301_A1_S17_314_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+\hypertarget{conclustion}{%
+\section{conclustion}\label{conclustion}}
+
+After removing the outliers, assumptions are not violated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{coef}\NormalTok{(red\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## (Intercept) working_env         age         bmi    children   is_smoker 
+## 23367.01967 -9731.74438   165.14881    16.46953   463.30489  5029.07600
+\end{verbatim}
+
+Fitted Model is , tot\_claims=23367.01967-(9731.74438)working\_env +
+(165.14881)age + (16.46953)bmi + (463.30489)children +
+(5029.076)is\_smoker
+
+\end{document}
